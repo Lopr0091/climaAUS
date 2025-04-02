@@ -1,0 +1,51 @@
+datos_crudos:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/weatherAUS.csv
+  load_args:
+    encoding: utf-8
+  save_args:
+    index: False
+
+cultivos_info:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/cultivos.csv
+  load_args:
+    encoding: utf-8
+    dtype:
+      regiones: str
+
+entrenamiento_siembra:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/entrenamiento_siembra.csv
+  load_args:
+    encoding: iso-8859-1
+    dtype:
+      regiones: str
+  save_args:
+    index: False
+
+score_modelo:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/score_modelo.csv
+  save_args:
+    mode: a  # para modo append
+    header: False  #Para no escribir cabecera si ya existe
+    index: False
+  load_args:
+    encoding: utf-8
+
+datos_limpios:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/datos_limpios.csv
+  load_args:
+    encoding: utf-8
+  save_args:
+    index: False
+
+datos_limpios_actualizados:
+  type: pandas.CSVDataset
+  filepath: data/03_primary/datos_limpios.csv
+  save_args:
+    index: False
+  load_args:
+    encoding: utf-8
