@@ -18,7 +18,7 @@ def duplicar_dataset(df: pd.DataFrame) -> pd.DataFrame:
     columnas_a_eliminar = [
         "Evaporation", "Sunshine", "Cloud9am", "Cloud3pm",
         "WindGustDir", "WindDir9am", "WindDir3pm",
-        "RainToday", "RISK_MM", "Date"
+        "RainToday", "RISK_MM"
     ]
 
     columnas_presentes = [col for col in columnas_a_eliminar if col in df_copia.columns]
@@ -34,7 +34,7 @@ def explorar_preparacion(df: pd.DataFrame) -> pd.DataFrame:
     columnas_a_eliminar = [
         "Evaporation", "Sunshine", "Cloud9am", "Cloud3pm",
         "WindGustDir", "WindDir9am", "WindDir3pm",
-        "RainToday", "RISK_MM", "Date"
+        "RainToday", "RISK_MM"
     ]
     print(f"Columnas a eliminadas: {columnas_a_eliminar}")
     num_filas = df.shape[0]

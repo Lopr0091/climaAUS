@@ -28,8 +28,8 @@ score_modelo:
   type: pandas.CSVDataset
   filepath: data/08_reporting/score_modelo.csv
   save_args:
-    mode: a  # para modo append
-    header: False  #Para no escribir cabecera si ya existe
+    mode: a
+    header: False
     index: False
   load_args:
     encoding: utf-8
@@ -45,7 +45,101 @@ datos_limpios:
 datos_limpios_actualizados:
   type: pandas.CSVDataset
   filepath: data/03_primary/datos_limpios.csv
-  save_args:
-    index: False
   load_args:
     encoding: utf-8
+  save_args:
+    index: False
+
+datos_unidos:
+  type: pandas.CSVDataset
+  filepath: data/04_feature/union_datasets.csv
+  load_args:
+    encoding: latin1
+  save_args:
+    index: False
+
+X_train:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_train.csv
+  load_args:
+    encoding: latin1
+  save_args:
+    index: False
+
+X_test:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/X_test.csv
+  load_args:
+    encoding: latin1
+  save_args:
+    index: False
+
+y_train:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_train.csv
+  load_args:
+    encoding: latin1
+  save_args:
+    index: False
+
+y_test:
+  type: pandas.CSVDataset
+  filepath: data/05_model_input/y_test.csv
+  load_args:
+    encoding: latin1
+  save_args:
+    index: False
+
+categoricas_excluidas:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/categoricas_excluidas.csv
+  save_args:
+    index: false
+
+encoder:
+  type: pickle.PickleDataset
+  filepath: data/06_models/encoder.pkl
+
+modelo_clasificacion:
+  type: pickle.PickleDataset
+  filepath: data/06_models/modelo_clasificacion.pkl
+
+modelo_entrenado:
+  type: pickle.PickleDataset
+  filepath: data/06_models/modelo_entrenado.pkl
+
+modelo_logistic_regression:
+  type: pickle.PickleDataset
+  filepath: data/06_models/modelo_logistic_regression.pkl
+
+score_logistic_regression:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/score_logistic_regression.csv
+  save_args:
+    index: False
+
+modelo_decision_tree:
+  type: pickle.PickleDataset
+  filepath: data/06_models/modelo_decision_tree.pkl
+
+score_decision_tree:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/score_decision_tree.json
+
+modelo_svm:
+  type: pickle.PickleDataset
+  filepath: data/06_models/modelo_svm.pkl
+
+score_svm:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/score_svm.json
+
+score_random_forest:
+  type: pandas.JSONDataset
+  filepath: data/08_reporting/score_random_forest.json
+
+tabla_comparacion_modelos:
+  type: pandas.CSVDataset
+  filepath: data/08_reporting/tabla_comparacion_modelos.csv
+  save_args:
+    index: False
